@@ -78,10 +78,8 @@ const getStudentInfo = (e) => {
     house,
     id,
   };
-  console.log(obj);
   students.push(obj);
   studentPrint(students);
-  console.log(students);
   // Need student printer for this function to continue.
 };
 
@@ -111,9 +109,6 @@ const handleButtonEvents = () => {
   startSorting.addEventListener('click', formOpen);
   document.querySelector('#form-container').addEventListener('submit', getStudentInfo);
 };
-// document.querySelector('#submit-form').addEventListener('submit', function (e) {
-//   console.log(e);
-// });
 // Initialize JS
 const init = () => {
   studentPrint(students);
