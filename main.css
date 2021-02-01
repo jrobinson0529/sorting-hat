@@ -1,10 +1,8 @@
+
+
 body {
-  background-color: blanchedalmond;
+  background-color: darkslategray;
 }
-
-
-
-
 form {
   width: 80%;
 }
@@ -25,7 +23,27 @@ form {
   width: 20%;
   height: auto;
 }
-
+/* House colors for student cards */
+.Gryffindor {
+  background-color:maroon;
+  border: goldenrod 4px solid;
+}
+.Hufflepuff {
+  background-color: rgb(196, 196, 13);
+  border: black 4px solid;
+}
+.Slytherin {
+  background-color: green;
+  border: silver 4px solid;
+}
+.Ravenclaw {
+  background-color: blue;
+  border: #cd7f32 4px solid;
+}
+.minion {
+  background-image: linear-gradient(black, red) ;
+  border: 3px black solid;
+}
 /* Mobile phone responsive design */
 @media only screen and (max-width: 600px) {
   .card {
