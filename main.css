@@ -3,6 +3,15 @@
 body {
   background-color: darkslategray;
 }
+hr {
+  margin: 200px 0 0 30px;
+}
+h4 {
+  margin: 20px;
+}
+.hogbois {
+  margin-top: 10px;
+}
 form {
   width: 80%;
 }
