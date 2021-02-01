@@ -67,6 +67,7 @@ const formOpen = (e) => {
 
 const getStudentInfo = (e) => {
   e.preventDefault();
+  const form = document.querySelector('form');
   const name = document.querySelector('#name').value;
   const house = ranHouse();
 
@@ -76,6 +77,7 @@ const getStudentInfo = (e) => {
   };
   students.push(obj);
   studentPrint(students);
+  form.reset();
   // Need student printer for this function to continue.
 };
 const voldArmyPrint = (array) => {
