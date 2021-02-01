@@ -1,6 +1,32 @@
 body {
   background-color: blanchedalmond;
 }
+
+
+
+
+form {
+  width: 80%;
+}
+.form-group input {
+  width: 40%;
+}
+.form-group button {
+  width: 20%;
+}
+.form-group {
+  height: 60%;
+  padding: 20px;
+  align-items: flex-start;
+  /* width: 70%; */
+  border: 1px red solid;
+}
+.form-group img {
+  width: 20%;
+  height: auto;
+}
+
+/* Mobile phone responsive design */
 @media only screen and (max-width: 600px) {
   .card {
     font-size: 10px;
@@ -11,5 +37,15 @@ body {
     width: 60%;
     height: 40%;
   }
-
+  .form-group {
+   height: auto;
+   align-content: center;
+  }
+  .form-group button, .form-group input {
+    min-width: 50px;
+    font-size: 10px;
+  }
+  .form-group .img-fluid {
+    align-self: center;
+  }
 }
