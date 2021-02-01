@@ -19,6 +19,43 @@ const printToDom = (divId, printedString) => {
   selectedDiv.innerHTML = printedString;
 };
 // Function to choose a random house
+const ranAdjective = () => {
+  const ranNum = (Math.floor(Math.random()*10)+1);
+  let adjective = '';
+  switch(ranNum) {
+    case 1:
+      adjective = 'Vile';
+      break;
+    case 2:
+      adjective = 'Defiled';
+      break;
+    case 3:
+      adjective = 'Chosen';
+      break;
+    case 4:
+      adjective = 'Cruel';
+      break;
+    case 5:
+      adjective = 'Grotesque';
+      break;
+    case 6:
+      adjective = 'Abashed';
+      break;
+    case 7:
+      adjective = 'Mighty';
+      break;
+    case 8:
+      adjective = 'Sniveling';
+      break;
+    case 9:
+      adjective = 'Unholy';
+      break;
+    case 10:
+      adjective = 'Disconcerted';
+      break;
+    }
+    return adjective;   
+};
 const ranHouse = () => {
   const ranNum = (Math.floor(Math.random() * 4) + 1);
   let house = '';
@@ -64,8 +101,9 @@ const formOpen = (e) => {
   isFormOpen = true;
   return isFormOpen; 
 };
-
+// Function that handles student submission
 const getStudentInfo = (e) => {
+  // Prevent form from reloading page
   e.preventDefault();
   const form = document.querySelector('form');
   const name = document.querySelector('#name').value;
@@ -77,27 +115,27 @@ const getStudentInfo = (e) => {
   };
   students.push(obj);
   studentPrint(students);
+  // Resets form after submission
   form.reset();
-  // Need student printer for this function to continue.
 };
+// Function that prints students who were expelled to vold army
 const voldArmyPrint = (array) => {
   let domString = '';
   array.forEach((element, i) => {
-    domString += `<div class="card m-3 text-center" style="width: 18rem;" id="${i}">
+    domString += `<div class="card m-3 text-center minion" style="width: 10rem; height: 12rem;" id="${i}">
                     <div class="card-body">
-                      <h5 class="card-title">${element[0].name}</h5>
-                      <p class="card-text">${element[0].house}</p>
+                      <h5 class="card-title">${element[0].name} the ${ranAdjective()}</h5>
+                      <p class="card-text"></p>
                       <p class="card-text">Minion of Voldemort</p>
                     </div>
-                  </div>`;
-      console.log(element) ;           
+                  </div>`;          
   });
   printToDom('#voldemort-army', domString);
 };
 const studentPrint = (array) => {
   let domString = '';
   array.forEach((element, i) => {
-    domString += `<div class="card m-3 text-center" style="width: 18rem;" id="${i}">
+    domString += `<div class="card m-3 text-center ${element.house}" style="width: 18rem;" id="${i}">
                     <div class="card-body">
                       <h5 class="card-title">${element.name}</h5>
                       <p class="card-text">${element.house}</p>
