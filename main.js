@@ -1,18 +1,15 @@
-
+const voldArmy = [];
 const students = [
   {
     name: 'Neville',
-    id: 23,
     house: 'Slytherin',
   },
   {
     name: 'Harry',
-    id: 19,
     house: 'Gryffindor',
   },
   {
     name: 'Ron',
-    id: 35,
     house: 'Hufflepuff',
   },
 ];
@@ -71,18 +68,29 @@ const getStudentInfo = (e) => {
   e.preventDefault();
   const name = document.querySelector('#name').value;
   const house = ranHouse();
-  const id = 10;
 
   const obj = {
     name,
     house,
-    id,
   };
   students.push(obj);
   studentPrint(students);
   // Need student printer for this function to continue.
 };
-
+const voldArmyPrint = (array) => {
+  let domString = '';
+  array.forEach((element, i) => {
+    domString += `<div class="card m-3 text-center" style="width: 18rem;" id="${i}">
+                    <div class="card-body">
+                      <h5 class="card-title">${element[0].name}</h5>
+                      <p class="card-text">${element[0].house}</p>
+                      <p class="card-text">Minion of Voldemort</p>
+                    </div>
+                  </div>`;
+      console.log(element) ;           
+  });
+  printToDom('#voldemort-army', domString);
+};
 const studentPrint = (array) => {
   let domString = '';
   array.forEach((element, i) => {
@@ -90,13 +98,30 @@ const studentPrint = (array) => {
                     <div class="card-body">
                       <h5 class="card-title">${element.name}</h5>
                       <p class="card-text">${element.house}</p>
-                      <a href="#" class="btn btn-primary">Expel</a>
+                      <button class="btn btn-primary" id="${i}">Expel</button>
                     </div>
                   </div>`;
   });
   printToDom('#card-container', domString);
 };
-
+const deleteStudent = (e) => {
+  const targetType = e.target.type;
+  let targetId = e.target.id;
+  if (targetType === 'submit') { 
+    // if (targetId + 1 === removedStudents.length) {
+    //   voldArmy.push(students.slice(targetId));
+    // }
+    // let voldArmy = students.slice(targetId, newTargetId);
+    
+    voldArmy.push(students.splice(targetId, 1));
+    // voldArmy.concat(voldArmy);
+    voldArmyPrint(voldArmy);
+    studentPrint(students);
+    console.log(voldArmy);
+    // voldArmyPrint(voldArmy);
+    // console.log(voldArmy);
+  }
+};
 
 
 
@@ -108,6 +133,7 @@ const studentPrint = (array) => {
 const handleButtonEvents = () => {
   startSorting.addEventListener('click', formOpen);
   document.querySelector('#form-container').addEventListener('submit', getStudentInfo);
+  document.querySelector('#card-container').addEventListener('click', deleteStudent);
 };
 // Initialize JS
 const init = () => {
