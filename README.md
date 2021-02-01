@@ -20,7 +20,7 @@ You can delete student cards which places them into a new section called 'Voldem
 
 ## How to Access
 
-Navigate to [link]()
+Navigate to [link](https://jr-sorting-hat.netlify.app/)
 
 ## Loom Walkthrough
 
