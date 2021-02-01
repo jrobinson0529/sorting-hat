@@ -1,3 +1,15 @@
 body {
   background-color: blanchedalmond;
 }
+@media only screen and (max-width: 600px) {
+  .card {
+    font-size: 10px;
+    width: 144px !important;
+  }
+  .card .btn {
+    text-align: center;
+    width: 60%;
+    height: 40%;
+  }
+
+}
