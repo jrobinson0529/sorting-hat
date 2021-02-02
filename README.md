@@ -24,7 +24,6 @@ Sound effects play on certain button clicks
 
 Animations!
 
-
 ## How to Access
 
 Navigate to [link](https://jr-sorting-hat.netlify.app/)
