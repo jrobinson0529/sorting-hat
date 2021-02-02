@@ -158,12 +158,25 @@ const deleteStudent = (e) => {
     // voldArmy.concat(voldArmy);
     voldArmyPrint(voldArmy);
     studentPrint(students);
-    console.log(voldArmy);
     // voldArmyPrint(voldArmy);
     // console.log(voldArmy);
   }
 };
-
+// Function to sort based on house or alphabetically
+const filterClick = (e) => {
+  const buttonId = e.target.id;
+  if (buttonId === 'house') {
+      // Sort method is hard to explain. Each letter in the alphabet has a UTF-16 code and this is checking if the UTF16 of A, the first object.property being checked, is greater than UTF16 of B. If it returns 1 then it takes priority.
+      const filteredByHouse = students.sort((a, b) => (a.house > b.house) ? 1 : (a.house === b.house) ? 1 : -1);   
+      studentPrint(filteredByHouse);
+      // Names need to be converted to lowercase because capital letters have different UTF16 values.
+      } else if (buttonId === 'alphabet') {
+      const filteredByAlphabet = students.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : -1);   
+      studentPrint(filteredByAlphabet);
+  }
+  
+  
+};
 
 
 
@@ -175,6 +188,8 @@ const handleButtonEvents = () => {
   startSorting.addEventListener('click', formOpen);
   document.querySelector('#form-container').addEventListener('submit', getStudentInfo);
   document.querySelector('#card-container').addEventListener('click', deleteStudent);
+  document.querySelector('#house').addEventListener('click', filterClick);
+  document.querySelector('#alphabet').addEventListener('click', filterClick);
 };
 // Initialize JS
 const init = () => {
