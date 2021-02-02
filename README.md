@@ -6,7 +6,7 @@ A single page web application that lets you create first year students in the Po
 Early build
 ![](img/fbfc75e964d231e2bc912c51abe55023.png)
 Finished Styling
-![](img\updated-styling.png)
+![](img/updated-styling.png)
 ## Wireframe/Mockup
 ![Sorting Hat Mockup](https://github.com/nss-nightclass-projects/exercise-vault/raw/master/images/sorting-hat-mockup.png)
 ## Project Board
