@@ -5,6 +5,8 @@ A single page web application that lets you create first year students in the Po
 ## Screenshots
 Early build
 ![](img/fbfc75e964d231e2bc912c51abe55023.png)
+Finished Styling
+![](img\updated-styling.png)
 ## Wireframe/Mockup
 ![Sorting Hat Mockup](https://github.com/nss-nightclass-projects/exercise-vault/raw/master/images/sorting-hat-mockup.png)
 ## Project Board
@@ -17,6 +19,11 @@ A bootstrap jumbotron with a button that opens a form.
   - When you submit a student is created in the Hogwarts section with a card displaying the name that was input and a randomly selected house.
 
 You can delete student cards which places them into a new section called 'Voldemort's Army'.
+
+Sound effects play on certain button clicks
+
+Animations!
+
 
 ## How to Access
 
