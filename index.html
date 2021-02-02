@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Stylesheets -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Eater&display=swap" rel="stylesheet">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,18 +17,20 @@
     <title>Sorting Hat</title>
   </head>
   <body>
+    
     <!-- Jumbotron with button that opens form -->
     <div class="jumbotron text-center">
-      <h1 class="display-4">Hello freshies!</h1>
-      <p class="lead mx-5">
+      <h1 class="display-2">Hello freshies!</h1>
+      <p class="lead mx-5 fw-normal fs-5 text-primary-color">
         I am the Sorting Hat. I am the habringer of your very fate. It is
         through me that the rest of you're life here is decided. Approach me
         now.
       </p>
       <hr class="my-4" />
-      <p class="mx-3">When you click this button there is no turning back.</p>
+      <p class="mx-3 secondary-text-color">When you click this button there is no turning back.</p>
       <p class="lead">
-        <button class="btn btn-primary btn-lg" role="button" id="sortingBtn">
+        <audio id="playSoundSort" src="sort.wav"></audio>
+        <button class="btn btn-primary btn-lg" role="button" id="sortingBtn" onclick="playSoundSort()">
           SORT
         </button>
       </p>
@@ -39,7 +43,7 @@
     </div>
     <hr class="hogbois" />
     <!-- Buttons for sorting -->
-    <div class="dropdown">
+    <div class="dropdown d-flex justify-content-center my-4">
       <button
         class="btn btn-secondary dropdown-toggle"
         type="button"
@@ -55,7 +59,7 @@
       </ul>
     </div>
     <!-- Container for the dynamically added student cards -->
-    <h4 class="text-center">Hogbois</h4>
+    <h4 class="text-center text-primary-color fs-2">Hogbois</h4>
     <div
       id="card-container"
       class="d-flex flex-wrap my-3 justify-content-evenly"
@@ -63,8 +67,8 @@
       <!-- card container end -->
     </div>
     <hr />
-    <h4 class="text-center">Voldemort's Army</h4>
-    <div id="voldemort-army" class="d-flex flex-wrap my-3"></div>
+    <h4 class="text-center fs-2">Voldemort's Army</h4>
+    <div id="voldemort-army" class="d-flex flex-wrap my-3 justify-content-evenly"></div>
 
     <!-- JS scripts -->
     <script

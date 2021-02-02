@@ -1,5 +1,17 @@
+.dark-primary-color    { background: #5D4037; }
+.default-primary-color { background: #795548; }
+.light-primary-color   { background: #D7CCC8; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #FF5722; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color 
+        { border-color: #BDBDBD; }
 body {
-  background-color: darkslategray;
+  font-family: 'Cinzel', serif;
+  /* font-family: 'Eater', cursive; */
+  color: #111111;
+  background-color: #5D4037;
 }
 hr {
   margin: 200px 0 0 30px;
@@ -20,47 +32,104 @@ form {
   width: 20%;
 }
 .form-group {
+  opacity: 100%;
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  background-color: #ff562275;
   height: 60%;
   padding: 20px;
   align-items: flex-start;
   /* width: 70%; */
-  border: 1px red solid;
+  border: 1px #ff562250 solid;
+  border-radius: 5px;
 }
 .form-group img {
   width: 20%;
   height: auto;
 }
+.card {
+  opacity: 100%;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+}
+.card-line {
+  margin: 20px;
+}
+.expel {
+  border: 1px black solid;
+  background-image: radial-gradient(red, black);
+}
+#sortingBtn {
+  border: 2px solid #BDBDBD;
+  background-color: #FF5722 ;
+}
+#submit-form {
+  width: 10%;
+  background-color: #795548;
+  border: 2px solid #BDBDBD;
+}
 /* House colors for student cards */
 .Gryffindor {
+  text-shadow: 1px 1px 3px goldenrod;
+  box-shadow: 0 0 15px maroon;
+  color: goldenrod;
   background-color: maroon;
   border: goldenrod 4px solid;
 }
 .Hufflepuff {
+  text-shadow: 1px 1px 3px #111111;
+  box-shadow: 0 0 15px  rgb(196, 196, 13);
+  color: #111111;
   background-color: rgb(196, 196, 13);
   border: black 4px solid;
 }
 .Slytherin {
+  text-shadow: 1px 1px 3px silver;
+  box-shadow: 0 0 15px green;
+  color: silver;
   background-color: green;
   border: silver 4px solid;
 }
 .Ravenclaw {
+  text-shadow: 1px 1px 3px #cd7f32;
+  box-shadow: 0 0 15px blue;
+  color: #cd7f32;
   background-color: blue;
   border: #cd7f32 4px solid;
 }
 .minion {
-  background-image: linear-gradient(black, red);
+  font-family: 'Eater', cursive;
+  box-shadow: 0 0 15px black;
+  text-shadow: 2px 5px 5px rgb(121, 7, 7);
+  font-weight: 1000;
+  color: #ad0000;
+  opacity: 100%;
+  animation-name: fadeIn;
+  animation-name: pulsingText;
+  animation: fadeIn 3s ease-in 1;
   border: 3px black solid;
+  background-image: url(/img/the-dark-mark.jpg);
+  background-position: center;
+}
+.minion .card-body {
+  animation: pulsingText 4s ease-in-out infinite;
 }
 /* Mobile phone responsive design */
 @media only screen and (max-width: 600px) {
   .card {
     font-size: 10px;
     width: 144px !important;
+    height: 150px;
   }
   .card .btn {
+    font-size: 10px;
     text-align: center;
     width: 60%;
-    height: 40%;
+    height: 20%;
   }
   .form-group {
     height: auto;
@@ -74,4 +143,18 @@ form {
   .form-group .img-fluid {
     align-self: center;
   }
+  .minion {
+    width: 100% !important;
+    height: 100px !important;
+  }
+}
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 100%;}
+}
+@keyframes pulsingText {
+  0% {color: #ad0000}
+  50% {color: #460303}
+  75% {color:rgb(121, 7, 7)}
+  100% {color: #ad0000}
 }

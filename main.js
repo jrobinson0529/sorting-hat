@@ -87,7 +87,7 @@ const formOpen = (e) => {
   e.preventDefault();
   let domString = '';
   if (e.target.id === "sortingBtn") {
-     domString = `
+     domString = `      
                         <div class="form-group w-100 d-flex flex-column flex-wrap align-items-start">
                             <label for="name" class="my-3">Student:</label>
                             <input type="text" class="form-control text-center" id="name" placeholder="Enter name here..." required>
@@ -97,6 +97,7 @@ const formOpen = (e) => {
               
                `;            
   }
+  // document.getElementById('#form-container').style.animation = "fadeIn 3s 1";
   printToDom('#form-container', domString);
   isFormOpen = true;
   return isFormOpen; 
@@ -122,11 +123,10 @@ const getStudentInfo = (e) => {
 const voldArmyPrint = (array) => {
   let domString = '';
   array.forEach((element, i) => {
-    domString += `<div class="card m-3 text-center minion" style="width: 10rem; height: 12rem;" id="${i}">
+    domString += `<div class="card m-3 text-center minion" style="width: 17rem; height: 19rem;" id="${i}">
                     <div class="card-body">
-                      <h5 class="card-title">${element[0].name} the ${ranAdjective()}</h5>
-                      <p class="card-text"></p>
-                      <p class="card-text">Minion of Voldemort</p>
+                      <h5 class="card-title fs-4 h-50">${element[0].name} the ${ranAdjective()}</h5>
+                      <p class="card-footer h-50">Minion of Voldemort</p>
                     </div>
                   </div>`;          
   });
@@ -135,11 +135,14 @@ const voldArmyPrint = (array) => {
 const studentPrint = (array) => {
   let domString = '';
   array.forEach((element, i) => {
-    domString += `<div class="card m-3 text-center ${element.house}" style="width: 18rem;" id="${i}">
+    domString += `
+                  <div class="card m-3 text-center ${element.house}" style="width: 18rem;" id="${i}">
                     <div class="card-body">
                       <h5 class="card-title">${element.name}</h5>
+                      <hr class="card-line">
                       <p class="card-text">${element.house}</p>
-                      <button class="btn btn-primary" id="${i}">Expel</button>
+                      <audio id="playSoundExpel" src="record.wav"></audio>
+                      <button onclick="playSoundExpel()" class="btn btn-primary expel" id="${i}">Expel</button>
                     </div>
                   </div>`;
   });
@@ -158,6 +161,7 @@ const deleteStudent = (e) => {
     // voldArmy.concat(voldArmy);
     voldArmyPrint(voldArmy);
     studentPrint(students);
+    new Audio('expel.wav').play();
     // voldArmyPrint(voldArmy);
     // console.log(voldArmy);
   }
@@ -177,6 +181,14 @@ const filterClick = (e) => {
   
   
 };
+// Play sound effect when opening the sort form
+function playSoundSort () {
+  document.getElementById('playSoundSort').play();
+}
+function playSoundExpel () {
+  document.getElementById('playSoundExpel').play();
+}
+
 
 
 
