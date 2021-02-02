@@ -30,6 +30,8 @@ Navigate to [link](https://jr-sorting-hat.netlify.app/)
 
 ## Loom Walkthrough
 
+https://www.loom.com/share/8472b57c53e245b5a94575cb5334b950
+
 ## Contributors
 
 [Jesse Robinson](https://github.com/jrobinson0529)
