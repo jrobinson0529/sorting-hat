@@ -18,6 +18,8 @@ A bootstrap jumbotron with a button that opens a form.
 
 You can delete student cards which places them into a new section called 'Voldemort's Army'.
 
+Sorting button that lets you sort the cards in alphabetical order or by house.
+
 ## How to Access
 
 Navigate to [link](https://jr-sorting-hat.netlify.app/)
