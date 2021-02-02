@@ -1,17 +1,32 @@
-.dark-primary-color    { background: #5D4037; }
-.default-primary-color { background: #795548; }
-.light-primary-color   { background: #D7CCC8; }
-.text-primary-color    { color: #FFFFFF; }
-.accent-color          { background: #FF5722; }
-.primary-text-color    { color: #212121; }
-.secondary-text-color  { color: #757575; }
-.divider-color 
-        { border-color: #BDBDBD; }
+.dark-primary-color {
+  background: #5d4037;
+}
+.default-primary-color {
+  background: #795548;
+}
+.light-primary-color {
+  background: #d7ccc8;
+}
+.text-primary-color {
+  color: #ffffff;
+}
+.accent-color {
+  background: #ff5722;
+}
+.primary-text-color {
+  color: #212121;
+}
+.secondary-text-color {
+  color: #757575;
+}
+.divider-color {
+  border-color: #bdbdbd;
+}
 body {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   /* font-family: 'Eater', cursive; */
   color: #111111;
-  background-color: #5D4037;
+  background-color: #5d4037;
 }
 hr {
   margin: 200px 0 0 30px;
@@ -64,13 +79,13 @@ form {
   background-image: radial-gradient(red, black);
 }
 #sortingBtn {
-  border: 2px solid #BDBDBD;
-  background-color: #FF5722 ;
+  border: 2px solid #bdbdbd;
+  background-color: #ff5722;
 }
 #submit-form {
   width: 10%;
   background-color: #795548;
-  border: 2px solid #BDBDBD;
+  border: 2px solid #bdbdbd;
 }
 /* House colors for student cards */
 .Gryffindor {
@@ -82,7 +97,7 @@ form {
 }
 .Hufflepuff {
   text-shadow: 1px 1px 3px #111111;
-  box-shadow: 0 0 15px  rgb(196, 196, 13);
+  box-shadow: 0 0 15px rgb(196, 196, 13);
   color: #111111;
   background-color: rgb(196, 196, 13);
   border: black 4px solid;
@@ -102,7 +117,7 @@ form {
   border: #cd7f32 4px solid;
 }
 .minion {
-  font-family: 'Eater', cursive;
+  font-family: "Eater", cursive;
   box-shadow: 0 0 15px black;
   text-shadow: 2px 5px 5px rgb(121, 7, 7);
   font-weight: 1000;
@@ -149,12 +164,24 @@ form {
   }
 }
 @keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 100%;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 @keyframes pulsingText {
-  0% {color: #ad0000}
-  50% {color: #460303}
-  75% {color:rgb(121, 7, 7)}
-  100% {color: #ad0000}
+  0% {
+    color: #ad0000;
+  }
+  50% {
+    color: #460303;
+  }
+  75% {
+    color: rgb(121, 7, 7);
+  }
+  100% {
+    color: #ad0000;
+  }
 }
