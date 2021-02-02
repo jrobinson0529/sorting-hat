@@ -1,5 +1,3 @@
-
-
 body {
   background-color: darkslategray;
 }
@@ -34,7 +32,7 @@ form {
 }
 /* House colors for student cards */
 .Gryffindor {
-  background-color:maroon;
+  background-color: maroon;
   border: goldenrod 4px solid;
 }
 .Hufflepuff {
@@ -50,7 +48,7 @@ form {
   border: #cd7f32 4px solid;
 }
 .minion {
-  background-image: linear-gradient(black, red) ;
+  background-image: linear-gradient(black, red);
   border: 3px black solid;
 }
 /* Mobile phone responsive design */
@@ -65,10 +63,11 @@ form {
     height: 40%;
   }
   .form-group {
-   height: auto;
-   align-content: center;
+    height: auto;
+    align-content: center;
   }
-  .form-group button, .form-group input {
+  .form-group button,
+  .form-group input {
     min-width: 50px;
     font-size: 10px;
   }
