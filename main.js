@@ -159,7 +159,7 @@ const studentPrint = (array) => {
                       <hr class="card-line">
                       <p class="card-text">${element.house}</p>
                       <audio id="playSoundExpel" src="record.wav"></audio>
-                      <button onclick="playSoundExpel()" class="btn btn-primary expel" id="${i}">Expel</button>
+                      <button onclick="playSoundExpel()" class="btn btn-primary expel text-center" id="${i}">Expel</button>
                     </div>
                   </div>`;
   });
