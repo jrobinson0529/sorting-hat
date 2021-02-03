@@ -1,4 +1,7 @@
+// Holds the deleted student cards
 const voldArmy = [];
+
+// Holds the students object data
 const students = [
   {
     name: 'Neville',
@@ -13,12 +16,14 @@ const students = [
     house: 'Hufflepuff',
   },
 ];
-let isFormOpen = false;
+
+// Injects HTML into a selected element
 const printToDom = (divId, printedString) => {
   let selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = printedString;
 };
-// Function to choose a random house
+
+// Chooses a random adjective to apply to deleted student cards that join voldarmy
 const ranAdjective = () => {
   const ranNum = (Math.floor(Math.random()*10)+1);
   let adjective = '';
@@ -56,33 +61,29 @@ const ranAdjective = () => {
     }
     return adjective;   
 };
-const ranHouse = () => {
-  const ranNum = (Math.floor(Math.random() * 4) + 1);
-  let house = '';
 
+// Apply a random house to newly created student cards
+const ranHouse = () => {
+  const ranNum = (Math.floor(Math.random() * 4));
+  let house = '';
   switch(ranNum) {
-    case 1:
+    case 0:
       house = 'Slytherin';
       break;
-    case 2:
+    case 1:
       house = 'Gryffindor';
       break;
-    case 3:
+    case 2:
       house = 'Hufflepuff';
       break;
-    case 4:
+    case 3:
       house = 'Ravenclaw';
       break;
   }
   return house;
 };
-// query selectors
-const body = document.querySelector('body');
-const formContainer = document.querySelector('#form-container');
-const cardContainer = document.querySelector('#card-container');
-const startSorting = document.querySelector('#sortingBtn');
 
-// Function to open the student form
+// Callback to opens the student form
 const formOpen = (e) => {
   e.preventDefault();
   let domString = '';
@@ -99,13 +100,18 @@ const formOpen = (e) => {
   }
   // document.getElementById('#form-container').style.animation = "fadeIn 3s 1";
   printToDom('#form-container', domString);
-  isFormOpen = true;
-  return isFormOpen; 
+
+  // Fancy sound effects
+  new Audio('sort.wav').play();
 };
-// Function that handles student submission
+
+// Callback to handle student submit button on form
 const getStudentInfo = (e) => {
+
   // Prevent form from reloading page
   e.preventDefault();
+
+  // Local query selectors that correspond to obj shorthand below
   const form = document.querySelector('form');
   const name = document.querySelector('#name').value;
   const house = ranHouse();
@@ -114,12 +120,21 @@ const getStudentInfo = (e) => {
     name,
     house,
   };
+
+  // When function gets called this pushes the newly created obj into the students array
   students.push(obj);
+
+  // Print the updated array after each submission
   studentPrint(students);
-  // Resets form after submission
+
+  // Resets form after submit button is clicked
   form.reset();
+
+  // Scroll down to the student cards section
+  document.querySelector('#hogbois').scrollIntoView({behavior: "smooth"});
 };
-// Function that prints students who were expelled to vold army
+
+// Prints voldArmy array to DOM
 const voldArmyPrint = (array) => {
   let domString = '';
   array.forEach((element, i) => {
@@ -132,6 +147,8 @@ const voldArmyPrint = (array) => {
   });
   printToDom('#voldemort-army', domString);
 };
+
+// Print students array to DOM
 const studentPrint = (array) => {
   let domString = '';
   array.forEach((element, i) => {
@@ -148,64 +165,81 @@ const studentPrint = (array) => {
   });
   printToDom('#card-container', domString);
 };
+
+// Delete student cards from students array and add them to voldArmy array
 const deleteStudent = (e) => {
   const targetType = e.target.type;
+
+  // The target ID will end up being the index of each card in the students array
   let targetId = e.target.id;
+
+  // Checking if the area clicked is the type of 'button'
   if (targetType === 'submit') { 
-    // if (targetId + 1 === removedStudents.length) {
-    //   voldArmy.push(students.slice(targetId));
-    // }
-    // let voldArmy = students.slice(targetId, newTargetId);
-    
+
+    // Simultaneously splice the student card at the index of 'targetId' and add it to voldArmy array
     voldArmy.push(students.splice(targetId, 1));
-    // voldArmy.concat(voldArmy);
+
+    // Prints voldArmy cards after each delete is clicked
     voldArmyPrint(voldArmy);
+
+    // Print the updated students array
     studentPrint(students);
+
+    // Fancy audio on delete click
     new Audio('expel.wav').play();
-    // voldArmyPrint(voldArmy);
-    // console.log(voldArmy);
   }
 };
-// Function to sort based on house or alphabetically
+
+// Sort based on house, or alphabetically
 const filterClick = (e) => {
   const buttonId = e.target.id;
   if (buttonId === 'house') {
       // Sort method is hard to explain. Each letter in the alphabet has a UTF-16 code and this is checking if the UTF16 of A, the first object.property being checked, is greater than UTF16 of B. If it returns 1 then it takes priority.
-      const filteredByHouse = students.sort((a, b) => (a.house > b.house) ? 1 : (a.house === b.house) ? 1 : -1);   
+      const filteredByHouse = students.sort((a, b) => (a.house > b.house) ? 1 : (a.house === b.house) ? 1 : -1);
+      
+      // Print the array that has been sorted
       studentPrint(filteredByHouse);
+
       // Names need to be converted to lowercase because capital letters have different UTF16 values.
       } else if (buttonId === 'alphabet') {
-      const filteredByAlphabet = students.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : -1);   
+      const filteredByAlphabet = students.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : -1);
+
+      // Print the array that has been sorted
       studentPrint(filteredByAlphabet);
-  }
-  
-  
+  }  
 };
-// Play sound effect when opening the sort form
-function playSoundSort () {
-  document.getElementById('playSoundSort').play();
-}
-function playSoundExpel () {
-  document.getElementById('playSoundExpel').play();
-}
-
-
-
-
-
-
 
 // Handles click events
 const handleButtonEvents = () => {
-  startSorting.addEventListener('click', formOpen);
+  document.querySelector('#sortingBtn').addEventListener('click', formOpen);
   document.querySelector('#form-container').addEventListener('submit', getStudentInfo);
   document.querySelector('#card-container').addEventListener('click', deleteStudent);
   document.querySelector('#house').addEventListener('click', filterClick);
   document.querySelector('#alphabet').addEventListener('click', filterClick);
 };
-// Initialize JS
+
+// Initializes Javascript upon page load
 const init = () => {
   studentPrint(students);
   handleButtonEvents();
 };
-init();
+
+init(); // Function call for above function
+
+//                          \_______/
+//                      `.,-'\_____/`-.,'                                      
+//                       /`..'\ _ /`.,'\
+//                      /  /`.,' `.,'\  \                                            
+//                     /__/__/     \__\__\__                                          
+//                     \  \  \     /  /  /                                                
+//                      \  \,'`._,'`./  /                                      
+//                       \,'`./___\,'`./            
+//                      ,'`-./_____\,-'`.
+//                          /   |   \
+//                              |
+//                              |
+//                              |
+//                           / _ \
+//                         \_\(_)/_/
+//                          _//"\\_  Steve the Spider
+//                           /   \
