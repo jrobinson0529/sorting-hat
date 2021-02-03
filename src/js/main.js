@@ -1,4 +1,4 @@
-import {students, studentPrint,handleButtonEvents} from "../src/js/index.js";
+import {students, studentPrint,handleButtonEvents} from "./index.js";
 
 
 const init = () => {
