@@ -26,7 +26,7 @@ Animations!
 
 ## How to Access
 
-Navigate to [link](https://jr-sorting-hat.netlify.app/)
+Navigate to [link](https://jr-sortinghat.netlify.app/)
 
 ## Loom Walkthrough
 
